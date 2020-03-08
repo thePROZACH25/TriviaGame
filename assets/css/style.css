@@ -1,0 +1,16 @@
+body {
+  background-image: url(../images/240_F_306907968_PN7plg1yWLNAkT6fPbcnOHKwCeTRfytv.jpg);
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+.game-board{
+    width: 600px;
+    height: 500px;
+    text-align: center;
+    background-color: blanchedalmond;
+    align-items: flex;
+    justify-items: center;
+}
+    
+
