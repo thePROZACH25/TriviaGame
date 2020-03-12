@@ -7,9 +7,10 @@ body {
 
 .game-board{
     width: 600px;
-    /* height: 500px; */
+    padding-bottom: 50px;
+    padding-top: 20px;
     text-align: center;
-    background-color: blanchedalmond;
+    background-color: rgb(255, 235, 205);
     align-items: flex;
     justify-items: center;
     font-family: 'Source Serif Pro', serif;

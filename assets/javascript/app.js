@@ -2,58 +2,70 @@
 // Var
 var questions = [
   {
-    question:
-      "What geothermal Icelandic site has the same name as a 1980 movie?",
-    answers: ["Xanadu", "The Shining", "Heavens Gate", "The Blue Lagoon"],
-    currectAnswers: "The Blue Lagoon"
+    question: "Which car manufacturer has won the 24hr of Le Mans the most?",
+    answers: ["Ford", "Porsche", "Ferrari", "Toyota"],
+    currectAnswers: "Porsche"
   },
   {
     question:
-      "What geothermal Icelandic site has the same name as a 1980 movie?",
-    answers: ["Xanadu", "The Shining", "Heavens Gate", "The Blue Lagoon"],
-    currectAnswers: "The Blue Lagoon"
+      "In the 1990 cult classic TV show Twin Peaks, who killed Laura Palmer?",
+    answers: [
+      "Josie Packard",
+      "Agent Cooper",
+      "Donna Hayward",
+      "Leland Palmer"
+    ],
+    currectAnswers: "Leland Palmer"
   },
   {
     question:
-      "What geothermal Icelandic site has the same name as a 1980 movie?",
-    answers: ["Xanadu", "The Shining", "Heavens Gate", "The Blue Lagoon"],
-    currectAnswers: "The Blue Lagoon"
+      "Most people don't know but there are different types of Orca Whales. How many are there?",
+    answers: ["4", "8", "2", "7"],
+    currectAnswers: "4"
+  },
+  {
+    question: "What is the most commonly landed on space in Monopoly?",
+    answers: [
+      "St. James Place",
+      "North Carolina Avenue",
+      "Park Place",
+      "Illinois Avenue"
+    ],
+    currectAnswers: "Illinois Avenue"
+  },
+  {
+    question: "What is the molecular formula of Heavy Water?",
+    answers: ["H2O", "D2O", "THO", "T2O"],
+    currectAnswers: "D2O"
   },
   {
     question:
-      "What geothermal Icelandic site has the same name as a 1980 movie?",
-    answers: ["Xanadu", "The Shining", "Heavens Gate", "The Blue Lagoon"],
-    currectAnswers: "The Blue Lagoon"
+      "Ranging from $6k-$40k, which one of these Nike sneakers has the lowest resale value?",
+    answers: [
+      "Air Mag Back to the Future",
+      "Dunk Low Pro SB Pigeon",
+      "Yeezy 2 Red October",
+      "Air Jordan 11 'Jeter'"
+    ],
+    currectAnswers: "Dunk Low Pro SB Pigeon"
   },
   {
     question:
-      "What geothermal Icelandic site has the same name as a 1980 movie?",
-    answers: ["Xanadu", "The Shining", "Heavens Gate", "The Blue Lagoon"],
-    currectAnswers: "The Blue Lagoon"
+      "In 2014, setting a record of 240hr, which DJ holds the title for the longest DJ set?",
+    answers: ["DJ Obi", "DJ Jazzy Jeff", "Grand Master Flash", "DJ Swisha"],
+    currectAnswers: "DJ Obi"
   },
   {
     question:
-      "What geothermal Icelandic site has the same name as a 1980 movie?",
-    answers: ["Xanadu", "The Shining", "Heavens Gate", "The Blue Lagoon"],
-    currectAnswers: "The Blue Lagoon"
+      "In graffiti, some artist will tag locations like highway over passes, tall bridges and billboards. What are theses locations referred to as?",
+    answers: ["Racking", "Landmark", "Heaven Spot", "Slam"],
+    currectAnswers: "Heaven Spot"
   },
   {
     question:
-      "What geothermal Icelandic site has the same name as a 1980 movie?",
-    answers: ["Xanadu", "The Shining", "Heavens Gate", "The Blue Lagoon"],
-    currectAnswers: "The Blue Lagoon"
-  },
-  {
-    question:
-      "What geothermal Icelandic site has the same name as a 1980 movie?",
-    answers: ["Xanadu", "The Shining", "Heavens Gate", "The Blue Lagoon"],
-    currectAnswers: "The Blue Lagoon"
-  },
-  {
-    question:
-      "What geothermal Icelandic site has the same name as a 1980 movie?",
-    answers: ["Xanadu", "The Shining", "Heavens Gate", "The Blue Lagoon"],
-    currectAnswers: "The Blue Lagoon"
+      "In Fist of the Norht Star, Kenshiro is one of 4 adopted siblings but he has one real brother. Who is he?",
+    answers: ["Toki", "Raoh", "Hyō", "Jagi"],
+    currectAnswers: "Hyō"
   },
   {
     question:
@@ -66,12 +78,12 @@ var questions = [
 var game = {
   correct: 0,
   incorrect: 0,
-  counter: 20,
+  counter: 10,
   countdown: function() {
     game.counter--;
     $("#counter").html(game.counter);
     if (game.counter <= 0) {
-      console.log("Time's Up");
+      // console.log("Time's Up");
       game.done();
     }
   },
@@ -94,10 +106,12 @@ var game = {
         );
       }
     }
+    $(".quest-table").append(`<br><button id="done">Done</button>`);
   },
 
   done: function() {
-    $.each($("input[name='question-0']: checked"), function() {
+    console.log(this.done)
+    $.each($("input['name=question-0']: checked"), function() {
       if ($(this).val() == questions[0].correctAnswer) {
         game.correct++;
       } else {
@@ -140,7 +154,7 @@ var game = {
       }
     });
     $.each($("input[name='question-6']: checked"), function() {
-      if ($(this).val() == questions[0].correctAnswer) {
+      if ($(this).val() == questions[6].correctAnswer) {
         game.correct++;
       } else {
         game.incorrect++;
@@ -192,4 +206,8 @@ var game = {
 
 $("#start-button").on("click", function() {
   game.start();
+});
+
+$(document).on("click", "#done", function() {
+  game.done();
 });
